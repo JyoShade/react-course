@@ -11,17 +11,19 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-     
-    function handleClick() {
-        console.log('Clicked');
-
-    } 
+  
+  
     function App() {
-        
+      const [count, setCount] = React.useState(0);  
+
+      function counterIncrease() {
+        setCount(c => c + 1);
+
+      }
 
         return (
           <>
-            <button onClick={() => handleClick()}>Clicked 0 times</button>
+            <button onClick={counterIncrease}>Clicked {count}</button>
           </>
         );
       }
