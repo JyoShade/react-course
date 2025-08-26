@@ -15,6 +15,7 @@
 
       function Displaytext ({text, setText}){
         const resetInput = () => setText("");
+        const exampleText = () => setText("Günther");
         
         function saveInputChange(e) {
         setText(e.target.value);
@@ -26,7 +27,7 @@
          value={text}
         />
         <button onClick={resetInput}>Reset</button>
-        <button>Example</button>
+        <button onClick={exampleText}>Example</button>
         </>
 
 
