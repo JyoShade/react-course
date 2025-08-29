@@ -16,12 +16,10 @@
       function ChatInput({ chatMessages, setChatMessages }) {
         const [inputText, setInputText] = React.useState('');
 
-        function onKeyDown (e) {
-          if (event.key === "Enter") {
-            console.log("Enter key pressed");
+        function pressKey (e) {
+          if (e.key === "Enter") {
+            sendMessage(e.target.value);
           }
-
-          sendMessage(e.target.value);
         }
 
         function saveInputText(event) {
@@ -61,7 +59,7 @@
               size="30"
               onChange={saveInputText}
               value={inputText}
-              onKeyDown={onKeyDown}
+              onKeyDown={pressKey}
             />
             <button
               onClick={sendMessage}
