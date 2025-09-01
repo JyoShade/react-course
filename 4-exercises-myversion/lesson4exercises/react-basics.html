@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basics</title>
+
+    <style>
+      
+      .button-green{
+        background-color: rgb(25, 135, 84);
+        color: white;
+        border-width: 0px;
+        border-radius: 2px;
+        font-family: arial;
+        padding: 8px 8px;
+        cursor: pointer;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+    
+    function ButtonGreen({isButtonOn, setIsButtonOn}) {
+
+
+      return (
+        <div>
+          <button className="button-green"
+          onClick={() => setIsButtonOn(!isButtonOn)}
+          >{isButtonOn ? "On" : "Off"}</button>
+        </div>
+
+      )
+    }
+
+
+    function App () {
+      const [isButtonOn, setIsButtonOn] = React.useState(true);
+        return (
+          <div>
+            <ButtonGreen
+              isButtonOn={isButtonOn}
+              setIsButtonOn={setIsButtonOn}
+              
+            />
+          </div>
+
+      );
+    };
+      
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
