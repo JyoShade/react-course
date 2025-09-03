@@ -5,8 +5,17 @@
 
     <style>
       
-      .button-green{
+      .button-green {
         background-color: rgb(25, 135, 84);
+        color: white;
+        border-width: 0px;
+        border-radius: 2px;
+        font-family: arial;
+        padding: 8px 8px;
+        cursor: pointer;
+      }
+
+      .button-red {background-color: rgb(220, 53, 69);
         color: white;
         border-width: 0px;
         border-radius: 2px;
@@ -26,12 +35,12 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
     
-    function ButtonGreen({isButtonOn, setIsButtonOn}) {
+    function ButtonToggle({isButtonOn, setIsButtonOn}) {
 
 
       return (
         <div>
-          <button className="button-green"
+          <button className={isButtonOn ? "button-green" : "button-red"}
           onClick={() => setIsButtonOn(!isButtonOn)}
           >{isButtonOn ? "On" : "Off"}</button>
         </div>
@@ -44,9 +53,10 @@
       const [isButtonOn, setIsButtonOn] = React.useState(true);
         return (
           <div>
-            <ButtonGreen
+            <ButtonToggle
               isButtonOn={isButtonOn}
               setIsButtonOn={setIsButtonOn}
+
               
             />
           </div>
